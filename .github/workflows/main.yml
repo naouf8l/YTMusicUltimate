@@ -76,11 +76,11 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Install Cyan
-        run: |
-          brew install pipx
-          pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
-
+      - name: Install pipx
+  run: |
+    brew uninstall pipx || true
+    brew install pipx
+    
       - name: Inject tweak into provided IPA
         run: |
           cd ${{ github.workspace }}/main/packages
